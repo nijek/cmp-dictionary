@@ -97,8 +97,6 @@ function source.resolve(_, item, callback)
     local command = vim.tbl_map(function(c)
       return c:gsub("${label}", item.label)
     end, opts.document.command)
-    local result = util.system(command)
-    item.documentation = table.concat(result, "\n")
   end
   callback(item)
 end
